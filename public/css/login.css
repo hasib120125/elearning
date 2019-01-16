@@ -1,0 +1,120 @@
+/* -------------------------------------------------------- */
+/* BASIC SETUP */
+/* -------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #c00;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* -------------------------------------------------------- */
+/* Login Page */
+/* -------------------------------------------------------- */
+.login-page {
+    min-height: 100vh;
+}
+
+.login-page .logo-container img {
+    width: 15%;
+}
+
+.login-page h1 {
+    font-size: 200%;
+    text-align: center;
+    font-weight: normal;
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 450px;
+    margin: auto;
+    text-align: center;
+    padding: 3% 0px;
+}
+
+.sign-in-form {
+    display: inline-block;
+    width: 350px;
+    margin: auto;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin: 15px 0px 8px 15px;
+    font-size: 75%;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+input[type="text"],
+input[type="password"] {
+    outline: 0;
+    font-size: 75%;
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    letter-spacing: 1px;
+    line-height: 1.5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin: 30px auto 0;
+    padding: 8px 60px;
+    border-radius: 25px;
+    outline: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 80%;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+input[type="submit"]:hover {
+    color: #f00;
+    background-color: #fff;
+}
+
+a.pass {
+    font-size: 65%;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.sign-in-form a {
+    display: block;
+    text-align: right;
+    margin: 15px 0px;
+}

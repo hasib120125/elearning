@@ -1,0 +1,88 @@
+.certificate {
+    background-image: url('/img/background.png');
+    background-size: cover;
+    background-position: center;
+    -webkit-print-color-adjust: exact;
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    font-family: 'Sunflower', sans-serif;
+    color: #bf1e2e;
+    text-align: center;
+    margin-top: 90px;
+}
+
+.text {
+    font-size: 22px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.participant-name {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Alex Brush', cursive;
+    color: #2C3A47;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    width: 72%;
+    margin: 0 auto;
+}
+
+.course-name {
+    font-size: 36px;
+    font-family: 'Abel', sans-serif;
+    color: #bf1e2e;
+    text-align: center;
+    font-weight: normal;
+}
+
+.divider {
+    width: 30%;
+    height: auto;
+}
+
+.long-text {
+    width: 80%;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #2c3e50;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: normal;
+}
+
+.signature-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+.signature {
+    border-top: 1px solid #ddd;
+}
+
+.signature h4 {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.signature h4:first-child {
+    margin: 7px 0 5px 0;
+}
+
+.seal {
+    width: 110px;
+    height: auto;
+    position: absolute;
+    top: 68%;
+    left: 10%;
+}

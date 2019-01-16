@@ -1,0 +1,137 @@
+/* -------------------------------------------------------- */
+/* BASIC SETUP */
+/* -------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body.login-page {
+    background-color: #F12C2E;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* -------------------------------------------------------- */
+/* Login Page */
+/* -------------------------------------------------------- */
+.login-page-container {
+    min-height: 100vh;
+}
+
+.login-page .logo-container {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.login-page .logo-container img {
+    width: 10%;
+    margin: 50px 0;
+}
+
+.login-page .wrapper {
+    width: 450px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding: 3% 0px;
+}
+
+.login-page .sign-in-form {
+    display: inline-block;
+    width: 350px;
+    margin: auto;
+    text-align: left;
+}
+
+.login-page label {
+    display: block;
+    margin: 15px 0px 8px 15px;
+    font-size: 75%;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.login-page input[type="text"],
+.login-page input[type="password"] {
+    outline: 0;
+    font-size: 75%;
+    padding: 8px 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+.login-page input[type="submit"] {
+    width: 100%;
+    margin: 20px auto 0;
+    padding: 8px 60px;
+    border-radius: 25px;
+    outline: 0;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 80%;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.login-page input[type="submit"]:hover {
+    color: #f00;
+    background-color: #fff;
+}
+
+.login-page a.pass {
+    font-size: 65%;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.sign-in-form a {
+    display: block;
+    text-align: right;
+    margin: 15px 0px 0px;
+}
+
+.login-page .section-upper {
+    background-color: #FEEAEC;
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 375px) {
+    .login-page h1 {
+        font-size: 120%;
+    }
+
+    .login-page .wrapper {
+        width:  280px;
+    }
+
+    .login-page .wrapper .sign-in-form {
+        width: 280px;
+    }
+}
