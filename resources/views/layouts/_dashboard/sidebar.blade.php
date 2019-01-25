@@ -86,12 +86,6 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('course-user.assign-liveclass') }}">
-              <i class="fa fa-question"></i>
-              <span>Assign Liveclass</span>
-            </a>
-          </li>
-          <li>
             <a href="{{route('course-user.status')}}">
               <i class="fa fa-bars"></i>
               <span>Assigned Courses Status</span>
@@ -106,6 +100,37 @@
         </ul>
       </li>
       @endrole
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-etsy"></i>
+          <span>Live Class</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{{ route('live-streams.index') }}">
+              <i class="fa fa-question"></i>
+              <span>LiveStream</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('live-streams.assign') }}">
+              <i class="fa fa-question"></i>
+              <span>Assign LiveStream</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('live-streams.status')}}">
+              <i class="fa fa-bars"></i>
+              <span>Assigned LiveStream Status</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
       <li class="treeview">
         <a href="#">
           <i class="fa fa-bar-chart-o"></i>

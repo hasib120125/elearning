@@ -471,13 +471,12 @@ img{
   margin-bottom: 10px;
 }
 .result-status {
-  color: #c71212;
+  color: #FFFFFF;
   font-size: 16px;
   font-weight: bold;
   line-height: 1;
   padding: 10px 40px 10px 15px;
-  text-align: right;
-  border: 1px solid #c71212;
+  text-align: left;
 }
 .result-status.disqualified, .result-status.disqualify{
   background-color: #E91D19;

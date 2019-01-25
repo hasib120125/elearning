@@ -27,6 +27,7 @@
     "moment": "^2.22.2",
     "shaka-player": "^2.5.0-beta2",
     "video.js": "^7.4.1",
+    "videojs-mux": "^2.4.2",
     "vue": "^2.5.16",
     "vue-awesome-swiper": "^3.1.3",
     "vue-carousel": "^0.10.0",
