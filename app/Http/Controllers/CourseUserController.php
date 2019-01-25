@@ -142,40 +142,10 @@ class CourseUserController extends Controller
         }
         $test = $course->users()->attach($course_users);
 
-        if(!empty($course_user->exam_user_id))
-        DB::table('course_extras')->update(['exam_user_id' => $course_user->exam_user_id]);
+        $course_exam = ExamUser::latest()->first();
+        DB::table('course_extras')->where('course_id', $course->id)->update(['exam_user_id' => $course_exam->id]);
 
         return redirect()->back()->with('success', 'Course Assigned Successfully');
-    }
-
-    public function assignLiveClass(){
-        $courses = Course::where('status_id', 11)->pluck('name', 'id');
-        $divisions = Division::orderBy('name')->select('name', 'id')->get();
-        $departments = Department::orderBy('name')->select('name', 'id', 'division_id')->get();
-        $units = Unit::orderBy('name')->select('name', 'id', 'department_id', 'division_id')->get();
-        $users = User::where('is_active', true)
-            ->where('username', '!=', 'sa')
-            ->select(\DB::raw("CONCAT(CONCAT(CONCAT(name, ' ('), username), ')') AS name, id"), 'division_id', 'department_id', 'unit_id')
-            ->get();
-        $groups = Group::orderBy('name')
-            ->select('name', 'id')
-            ->get();
-        $teams = Team::orderBy('name')
-            ->select('name', 'id', 'group_id')
-            ->with(['users' => function ($query) {
-                $query->select('users.id');
-            }])
-            ->get();
-        $email_body = Setting::where('key', 'course_assign_email')->first();
-        $email_body = $email_body ? $email_body->value : '';
-        $exam_email_body = Setting::where('key', 'exam_assign_email')->first();
-        $exam_email_body = $exam_email_body ? $exam_email_body->value : '';
-
-        return view('course-user.assign_liveclass', compact('divisions', 'departments', 'units', 'users', 'groups', 'teams', 'courses', 'email_body', 'exam_email_body'));
-    }
-
-    public function assignLiveClassSave(Request $request){
-        
     }
 
     public function status()
