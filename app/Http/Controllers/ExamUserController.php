@@ -31,8 +31,8 @@ class ExamUserController extends Controller
         }
 
         $data = [
-            'user' => auth()->user(),
-            'course' => $course_extras,
+            'user' => $course_user->user->name,
+            'course' => $course_extras->course->name,
             'signer_name1' => $course_extras->signer_name1,
             'signer_position1' => $course_extras->signer_position1,
             'signer_sign1' => $course_extras->signer_sign1,

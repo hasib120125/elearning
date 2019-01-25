@@ -82,5 +82,5 @@ Route::middleware('auth', CheckDefaultPassword::class)
             ->group(base_path('routes/skills.php'));
         Route::name('content-files.')
             ->prefix('content-files')
-            ->group(base_path('routes/content-files.php'));
+            ->group(base_path('routes/content-files.php'));       
     });

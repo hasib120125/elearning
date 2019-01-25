@@ -1,10 +1,10 @@
 @extends('layouts.dashboard')
-@section('page-title', 'Assign Live Class')
+@section('page-title', 'Assign Course')
 @section('content')
-{!! Form::open(['id' => 'model-form','url' => ['course-user.assign-liveclass-save'], 'method'=>'POST']) !!}
+{!! Form::open(['id' => 'model-form','route' => ['courses.liveclass-assign'], 'method'=>'POST']) !!}
 <div class="content-header clearfix">
    <h2 class="pull-left">
-    ASSIGN LIVE CLASS
+    ASSIGN LIVECLASS
   </h2>
   <div class="pull-right">
       <button type="submit" name="save" class="btn bg-blue">
