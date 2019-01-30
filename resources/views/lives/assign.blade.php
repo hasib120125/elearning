@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('page-title', 'Assign Course')
+@section('page-title', 'Assign Liveclass')
 @section('content')
 {!! Form::open(['id' => 'model-form','route' => ['courses.liveclass-assign'], 'method'=>'POST']) !!}
 <div class="content-header clearfix">
@@ -73,6 +73,74 @@
 
                     <div class="row clearfix">
                         <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label">Division</label>
+                                </div>
+                                <div class="col-md-9">
+                                    {!! Form::select('division_id', $divisions->pluck('name', 'id'), null, ['class' => 'form-control select2 division-id', 'placeholder' => 'Select Division', 'data-allow-clear' => 'true', 'data-tags' => 'true'])!!}
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label">Department</label>
+                                </div>
+                                <div class="col-md-9">
+                                    {!! Form::select('department_id', $departments->pluck('name', 'id'), null, ['class' => 'form-control select2 department-id', 'placeholder' => 'Select Department', 'data-allow-clear' => 'true', 'data-tags' => 'true'])!!}
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label">Unit</label>
+                                </div>
+                                <div class="col-md-9">
+                                    {!! Form::select('unit_id', $units->pluck('name', 'id'), null, ['class' => 'form-control select2 unit-id', 'placeholder' => 'Select Unit', 'data-allow-clear' => 'true', 'data-tags' => 'true'])!!}
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label">Group</label>
+                                </div>
+                                <div class="col-md-9">
+                                    {!! Form::select('group_id', $groups->pluck('name', 'id'), null, ['class' => 'form-control select2 group-id', 'placeholder' => 'Select Group', 'data-allow-clear' => 'true', 'data-tags' => 'true'])!!}              
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label">Team</label>
+                                </div>
+                                <div class="col-md-9">
+                                    {!! Form::select('team_id', $teams->pluck('name', 'id'), null, ['class' => 'form-control select2 team-id', 'placeholder' => 'Select Division', 'data-allow-clear' => 'true', 'data-tags' => 'true'])!!}             
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-8">
                             <div class="form-group {{ $errors->has('user_ids') ? 'has-error' : ''}}">
                                 <div class="col-md-3">
                                     <label class="control-label">Users</label>
@@ -88,26 +156,15 @@
                     </div>
                     <div class="row clearfix">
                         <div class="col-md-12">
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('email_body') ? 'has-error' : ''}}">
                                 <div class="col-md-2">
                                     <label class="control-label">Email Body</label>
                                 </div>
                                 <div class="col-md-9">
                                     {!! Form::textarea('email_body', $email_body, ['class' => 'form-control email-body', 'id' => 'email-body'])!!}
-                                    <span class="help-block"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row clearfix">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <label class="control-label">Exam Email Body</label>
-                                </div>
-                                <div class="col-md-9">
-                                    {!! Form::textarea('exam_email_body', $exam_email_body, ['class' => 'form-control exam-email-body', 'id' => 'exam-email-body'])!!}
-                                    <span class="help-block"></span>
+                                    @if($errors->has('email_body'))
+                                    <span class="help-block">{{ $errors->first('email_body')}}</span>
+                                    @endif
                                 </div>
                             </div>
                         </div>

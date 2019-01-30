@@ -25,7 +25,7 @@ class ExamUserController extends Controller
             abort(404);
         }
 
-        $course_extras = CourseExtra::where('exam_user_id', $id)->first();
+        $course_extras = CourseExtra::where('exam_user_id', $course_user->exam_user_id)->first();
         if(empty($course_extras)){                        
             abort(404);
         }

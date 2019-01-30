@@ -74,6 +74,11 @@ class User extends Authenticatable
             ->withPivot([
                 'id',
                 'status_id',
+                'state',
+                'started_at',
+                'ended_at',
+                'taken_at',
+                'completed_at',
             ])
             ->withTimestamps()
             ->using('App\Models\LiveclassUser');

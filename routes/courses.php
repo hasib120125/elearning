@@ -19,16 +19,33 @@ Route::delete('/{id}', 'CourseController@destroy')
     ->name('destroy');
 
 Route::get('liveclass', 'LiveclassController@index')
-	->name('liveclass');
+    ->name('liveclass');
 Route::get('/liveclass-data', 'LiveclassController@indexData')
     ->name('liveclass-data');
 Route::get('liveclass-create', 'LiveclassController@create')
-	->name('liveclass-create');     
+    ->name('liveclass-create');     
 Route::post('liveclass-save', 'LiveclassController@store')
-	->name('liveclass-save');      
+    ->name('liveclass-save');      
 Route::get('liveclass-assign-form', 'LiveclassController@showAssignmentForm')
-	->name('liveclass-assign-form');    
+    ->name('liveclass-assign-form');    
 Route::post('liveclass-assign', 'LiveclassController@assign')
-	->name('liveclass-assign');
+    ->name('liveclass-assign');
 Route::get('liveclass-assign-status', 'LiveclassController@status')
-	->name('liveclass-assign-status');
+    ->name('liveclass-assign-status');
+
+Route::get('liveclass-status-data', 'LiveclassController@statusData')
+    ->name('liveclass-status-data');
+Route::post('liveclass-change-status/{id}', 'LiveclassController@changeStatus')
+    ->name('liveclass-change-status');
+Route::get('liveclass-change-time/{id}', 'LiveclassController@showChangeTimeForm')
+    ->name('liveclass-change-time');
+Route::post('liveclass-change-time/{id}', 'LiveclassController@changeTime');
+
+Route::get('/liveclass-edit/{id}', 'LiveclassController@edit')
+    ->name('liveclass-edit');
+Route::patch('/liveclass-update/{id}', 'LiveclassController@update')
+    ->name('liveclass-update');
+Route::get('liveclass-delete/{id}', 'LiveclassController@delete')
+    ->name('liveclass-delete');
+Route::delete('/liveclass-destroy/{id}', 'LiveclassController@destroy')
+    ->name('liveclass-destroy');

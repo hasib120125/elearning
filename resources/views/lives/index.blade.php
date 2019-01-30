@@ -44,8 +44,8 @@ $(function () {
     columns: [
       {title: 'Title', data: 'title', name:'liveclasses.title'},
       {title: 'Description', data: 'description'},
-      {title: 'Start Date', data: 'started_at'},
-      {title: 'End Date', data: 'ended_at'},
+      {title: 'Start Date', data: 'created_at'},
+      {title: 'End Date', data: 'updated_at'},
       {title: 'Status', data: 'status'},
       {title: 'Duration', data: 'duration', render: function(val){
           return val[0] + 'h ' + val[1] + 'm ' + val[2] + 's';

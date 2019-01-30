@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
-@section('page-title', 'Course User Status')
+@section('page-title', 'Liveclass Status')
+
 @section('content')
 
 <div class="content-header clearfix">
@@ -7,24 +8,29 @@
     Assigned Liveclass Status
   </h2>
   <div class="pull-right">
+<<<<<<< HEAD
     <a href="" class="btn btn-info export-button" id="export-button">
       <i class="fa fa-download"></i> Liveclass Export
+=======
+    <a href="{{route('exams.export-exam-result')}}" class="btn btn-info">
+        <i class="fa fa-download"></i> Export Incomplete Liveclass
     </a>
-    
+    <a href="{{ route('exams.export')}}" class="btn btn-info export-button" id="export-button">
+      <i class="fa fa-download"></i> Liveclass Export
+    </a>
+    <a href="{{ route('courses.liveclass-create')}}" class="btn bg-blue create-button" id="create-button">
+      <i class="fa fa-plus-square"></i> Add new
+>>>>>>> 6176574271b32d0fc1e92c516ad1cdbe264378de
+    </a>
   </div>
 </div>
 <div class="content">
-  @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-    @endif
-  <div class="alert alert-success" id="success-msg" style="display:none"></div>
+    <div class="alert alert-success" id="success-msg" style="display:none"></div>
   <div class="alert alert-error" id="error-msg" style="display:none"></div>
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="bg-gray color-palette" style="padding: 10px; margin-bottom: 10px">
-          {{ Form::open(['id'=>'export-form','route' => 'course-user.export','method'=>'POST']) }}
+          {{ Form::open(['id'=>'export-form','route' => 'exams.export','method'=>'POST']) }}
         <div class="form-horizontal">
             <div class="row">
                 <div class="col-md-6">
@@ -46,7 +52,7 @@
                             <label class="control-lablel">Status</label>
                         </div>
                         <div class="col-md-8">
-                            {{ Form::select('status_id', $statuses, null, ['class' => 'status-id form-control select2', 'placeholder' => 'Please select', 'data-tags' => 'true', 'data-allow-clear' => 'true']) }}
+                            {!! Form::select('status_id', $statuses, null, ['class' => 'status-id form-control select2', 'placeholder' => 'Please select', 'data-tags' => 'true', 'data-allow-clear' => 'true']) !!}
                         </div>
                     </div>
                 </div>
@@ -87,7 +93,7 @@
   {
     var startDate = moment().subtract(29, 'days');
     var endDate = moment();
-    var course_id = '';
+    var exam_id = '';
     var status_id = '';
     var table = $('#data-table').DataTable(
     {
@@ -95,28 +101,28 @@
       processing: true,
       order: [[ 3, "desc" ], [5, "asc"], [1, "asc"] ],
       ajax: {
-       url : "{{route('course-user.status-data')}}",
+       url : "{{route('courses.liveclass-status-data')}}",
        data: function(d){
             d.start_date = startDate ? startDate.format('YYYY-MM-DD HH:mm:ss'): '';
             d.end_date = endDate ? endDate.format('YYYY-MM-DD HH:mm:ss') : '';
-            d.course_id = course_id;
+            d.liveclass_id = exam_id;
             d.status_id = status_id;
           }
       },
       columns: [
       {
-        title: 'Liveclass Name',
-        data: 'course_name',
-        name: 'courses.name',
+        title: 'Title',
+        data: 'liveclass_title',
+        name: 'liveclasses.title',
         render: function(data, type, row){
             if(row.status_id == 5){
-                return '<a href="/course-user/'+ row.id + '" target="_blank">' + data + '</a>';
+                return '<a href="/exam-user/'+ row.id + '" target="_blank">' + data + '</a>';
             }
             return data;
         }
       },
       {
-        title: 'User Name',
+        title: 'Name',
         data: 'user_name',
         name: 'users.name'
       },
@@ -128,12 +134,12 @@
       {
         title: 'Start Date',
         data: 'started_at',
-        name: 'course_user.started_at'
+        name: 'liveclass_user.started_at'
       },
       {
         title: 'End Date',
         data: 'ended_at',
-        name: 'course_user.ended_at'
+        name: 'liveclass_user.ended_at'
       },
       {
         title: 'Status',
@@ -142,7 +148,7 @@
       },
       {
         data: 'status_id',
-        name: 'course_user.status_id',
+        name: 'liveclass_user.status_id',
         visible: false,
         searchable: false
       },
@@ -197,8 +203,8 @@
       $('#reportrange span').html('');
       table.draw(false);
     });
-    $(".course-id").change(function(){
-        course_id = $(this).val();
+    $(".exam-id").change(function(){
+        exam_id = $(this).val();
         table.draw(false);
     })
     $(".status-id").change(function(){
@@ -209,6 +215,7 @@
         e.preventDefault()
         $("#export-form").submit();
     })
+    
   })
 </script>
 @endpush

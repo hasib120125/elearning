@@ -11,9 +11,14 @@ class LiveclassUser extends Pivot
         return $this->belongsTo('App\Models\Liveclass');
     }
 
-    public function user()
+    public function teams()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\Team');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
     }
 
     protected $casts = [
