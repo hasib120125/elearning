@@ -519,7 +519,7 @@
         CERTIFICATE OF COMPLETION
       </h1>
     <h4 class="text">This is to certify that</h4>
-    <h2 style="font-family: alexbrush;" class="participant-name">{{ $user}}</h2>
+    <h2 style="font-family: alexbrush;" class="participant-name">{{ auth()->user()->name}}</h2>
     <h4 class="text">has successfully completed the training course of</h4>
     <h1 style="font-family: sans-serif;" class="course-name">{{ $course }}</h1>
     <img class="divider" alt="divider img" src="{{public_path('img/divider.png')}}">

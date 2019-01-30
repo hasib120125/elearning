@@ -151,6 +151,54 @@ class StatusTableSeeder extends Seeder
                 'display_order' => 6,
                 'whose' => 'course_user',
             ],
+
+            [
+                'id' => 21,
+                'name' => 'open',
+                'display_name' => 'open',
+                'display_order' => 1,
+                'whose' => 'liveclass',
+            ],
+
+            [
+                'id' => 22,
+                'name' => 'close',
+                'display_name' => 'close',
+                'display_order' => 2,
+                'whose' => 'liveclass',
+            ],
+
+            [
+                'id' => 23,
+                'name' => 'pending',
+                'display_name' => 'pending',
+                'display_order' => 1,
+                'whose' => 'liveclass_users',
+            ],
+
+            [
+                'id' => 24,
+                'name' => 'ongoing',
+                'display_name' => 'ongoing',
+                'display_order' => 2,
+                'whose' => 'liveclass_users',
+            ],
+
+            [
+                'id' => 25,
+                'name' => 'complete',
+                'display_name' => 'complete',
+                'display_order' => 3,
+                'whose' => 'liveclass_users',
+            ],
+
+            [
+                'id' => 26,
+                'name' => 'expired',
+                'display_name' => 'expired',
+                'display_order' => 4,
+                'whose' => 'liveclass_users',
+            ],
         ];
         foreach ($statuses as $status) {
             Status::create($status);

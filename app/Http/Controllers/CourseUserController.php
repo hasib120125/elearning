@@ -143,7 +143,7 @@ class CourseUserController extends Controller
         $test = $course->users()->attach($course_users);
 
         $course_exam = ExamUser::latest()->first();
-        DB::table('course_extras')->where('course_id', $course->id)->update(['exam_user_id' => $course_exam->id]);
+        DB::table('course_extras')->where('course_id', $course->id)->update(['exam_user_id' => empty($exam_user) ? null : $exam_user->id]);
 
         return redirect()->back()->with('success', 'Course Assigned Successfully');
     }
