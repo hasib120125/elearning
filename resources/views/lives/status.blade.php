@@ -4,11 +4,11 @@
 
 <div class="content-header clearfix">
   <h2 class="pull-left">
-    Assigned Course Status
+    Assigned Liveclass Status
   </h2>
   <div class="pull-right">
     <a href="" class="btn btn-info export-button" id="export-button">
-      <i class="fa fa-download"></i> Course Export
+      <i class="fa fa-download"></i> Liveclass Export
     </a>
     
   </div>
@@ -55,10 +55,10 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <div class="col-md-2">
-                            <label class="control-lablel">Course Name</label>
+                            <label class="control-lablel">Liveclass Name</label>
                         </div>
                         <div class="col-md-4">
-                            {{ Form::select('course_id', $courses, null, ['class' => 'course-id form-control select2', 'placeholder' => 'Please select', 'data-tags' => 'true', 'data-allow-clear' => 'true']) }}
+                            {{ Form::select('live_id', $Liveclass, null, ['class' => 'course-id form-control select2', 'placeholder' => 'Please select', 'data-tags' => 'true', 'data-allow-clear' => 'true']) }}
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
       },
       columns: [
       {
-        title: 'Course Name',
+        title: 'Liveclass Name',
         data: 'course_name',
         name: 'courses.name',
         render: function(data, type, row){
@@ -116,7 +116,7 @@
         }
       },
       {
-        title: 'Student Name',
+        title: 'User Name',
         data: 'user_name',
         name: 'users.name'
       },

@@ -68,6 +68,17 @@ class User extends Authenticatable
             ->using('App\Models\ExamUser');
     }
 
+    public function lives()
+    {
+        return $this->belongsToMany('App\Models\Liveclass')
+            ->withPivot([
+                'id',
+                'status_id',
+            ])
+            ->withTimestamps()
+            ->using('App\Models\LiveclassUser');
+    }
+
     public function division()
     {
         return $this->belongsTo('App\Models\Division');

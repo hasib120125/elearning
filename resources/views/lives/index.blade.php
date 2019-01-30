@@ -42,7 +42,7 @@ $(function () {
     processing: true,
     ajax: "{{route('courses.liveclass-data')}}",
     columns: [
-      {title: 'Name', data: 'name', name:'courses.name'},
+      {title: 'Title', data: 'title', name:'liveclasses.title'},
       {title: 'Description', data: 'description'},
       {title: 'Start Date', data: 'started_at'},
       {title: 'End Date', data: 'ended_at'},

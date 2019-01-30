@@ -4,10 +4,6 @@ Route::get('/assign', 'CourseUserController@showAssignmentForm')
     ->name('assign');
 Route::post('/assign', 'CourseUserController@assign');
 
-Route::get('/assign-liveclass', 'CourseUserController@assignLiveClass')
-    ->name('assign-liveclass');
-Route::post('/assign-liveclass-save', 'CourseUserController@assignLiveClassSave');
-
 Route::get('status', 'CourseUserController@status')
     ->name('status');
 Route::get('status-data', 'CourseUserController@statusData')
