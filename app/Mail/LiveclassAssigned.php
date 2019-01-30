@@ -12,7 +12,7 @@ class LiveclassAssigned extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     protected $user;
-    protected $exam;
+    protected $liveclass;
     protected $started_at;
     protected $ended_at;
     protected $email_body;
@@ -22,10 +22,10 @@ class LiveclassAssigned extends Mailable implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($user, $exam, $started_at, $ended_at, $email_body)
+    public function __construct($user, $liveclass, $started_at, $ended_at, $email_body)
     {
         $this->user = $user;
-        $this->exam = $exam;
+        $this->liveclass = $liveclass;
         $this->started_at = $started_at;
         $this->ended_at = $ended_at;
         $this->email_body = $email_body;
@@ -48,7 +48,7 @@ class LiveclassAssigned extends Mailable implements ShouldQueue
             } elseif ($slots[1][$key] == 'end_date') {
                 $body = str_replace($slot, $this->ended_at, $body);
             } elseif ($slots[1][$key] == 'exam_title') {
-                $body = str_replace($slot, $this->exam->title, $body);
+                $body = str_replace($slot, $this->liveclass->title, $body);
             }
         }
 

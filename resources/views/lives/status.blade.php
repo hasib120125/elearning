@@ -8,12 +8,12 @@
     Assigned Liveclass Status
   </h2>
   <div class="pull-right">
-    <a href="{{route('exams.export-exam-result')}}" class="btn btn-info">
+    {{-- <a href="{{route('exams.export-exam-result')}}" class="btn btn-info">
         <i class="fa fa-download"></i> Export Incomplete Liveclass
     </a>
     <a href="{{ route('exams.export')}}" class="btn btn-info export-button" id="export-button">
       <i class="fa fa-download"></i> Liveclass Export
-    </a>
+    </a> --}}
     <a href="{{ route('courses.liveclass-create')}}" class="btn bg-blue create-button" id="create-button">
       <i class="fa fa-plus-square"></i> Add new
     </a>
@@ -59,7 +59,7 @@
                             <label class="control-lablel">Liveclass Name</label>
                         </div>
                         <div class="col-md-4">
-                            {{ Form::select('live_id', $Liveclass, null, ['class' => 'course-id form-control select2', 'placeholder' => 'Please select', 'data-tags' => 'true', 'data-allow-clear' => 'true']) }}
+                            {{ Form::select('live_id', $liveclass, null, ['class' => 'course-id form-control select2', 'placeholder' => 'Please select', 'data-tags' => 'true', 'data-allow-clear' => 'true']) }}
                         </div>
                     </div>
                 </div>
