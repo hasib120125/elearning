@@ -140,9 +140,21 @@ class LiveclassController extends Controller
     public function showAssignmentForm()
     {
         $liveClass = Liveclass::where('status_id', 21)->pluck('title', 'id');
+        $divisions = Division::orderBy('name')->select('name', 'id')->get();
+        $departments = Department::orderBy('name')->select('name', 'id', 'division_id')->get();
+        $units = Unit::orderBy('name')->select('name', 'id', 'department_id', 'division_id')->get();
         $users = User::where('is_active', true)
             ->where('username', '!=', 'sa')
             ->select(\DB::raw("CONCAT(CONCAT(CONCAT(name, ' ('), username), ')') AS name, id"), 'division_id', 'department_id', 'unit_id')
+            ->get();
+        $groups = Group::orderBy('name')
+            ->select('name', 'id')
+            ->get();
+        $teams = Team::orderBy('name')
+            ->select('name', 'id', 'group_id')
+            ->with(['users' => function ($query) {
+                $query->select('users.id');
+            }])
             ->get();
         $email_body = Setting::where('key', 'course_assign_email')->first();
         $email_body = $email_body ? $email_body->value : '';
