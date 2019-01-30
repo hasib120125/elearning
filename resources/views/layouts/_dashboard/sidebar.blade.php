@@ -133,7 +133,6 @@
         </ul>
       </li>
       @endrole
-
       <li class="treeview">
         <a href="#">
           <i class="fa fa-bar-chart-o"></i>
