@@ -10,7 +10,7 @@
 
 <script>
 import shaka from 'shaka-player'
-import mux from 'videojs-mux'
+import mux from 'mux.js'
 
 export default {
     data () {
@@ -20,43 +20,44 @@ export default {
     },
     mounted () {
         this.initApp()
+        this.initPlayer()
     },
     methods: {
          initApp() {
-            // Install built-in polyfills to patch browser incompatibilities.
-            shaka.polyfill.installAll()
+            shaka.polyfill.installAll();
 
-            // Check to see if the browser supports the basic APIs Shaka needs.
             if (shaka.Player.isBrowserSupported()) {
-                // Everything looks good!
-                this.initPlayer()
+                initPlayer();
             } else {
-                // This browser does not have the minimum set of APIs we need.
-                console.error('Browser not supported!')
+                console.error('Browser not supported!');
             }
         },
         initPlayer() {
+
             // Create a Player instance.
             var video = this.$refs.video
+
+            // shaka.media.ManifestParser.registerParserByExtension("m3u8", shaka.hls.HlsParser);
+            // shaka.media.ManifestParser.registerParserByMime("Application/vnd.apple.mpegurl", shaka.hls.HlsParser);
+            // shaka.media.ManifestParser.registerParserByMime("application/x-mpegURL", shaka.hls.HlsParser);
+
             var player = new shaka.Player(video);
             player.configure('manifest.defaultPresentationDelay', 0);
             window.player = player;
 
-            player.addEventListener('error', this.onErrorEvent)
-            // Try to load a manifest.
-            // This is an asynchronous process.
-            player.load(this.url).then(function() {
-                // This runs if the asynchronous load is successful.
-                console.log('The video has now been loaded!')
-            }).catch(this.onError)  // onError is executed if the asynchronous load fails.
+            player.addEventListener('error', onErrorEvent);
+
+            player.load(manifestUri).then(function () {
+                console.log('The video has now been loaded!');
+            }).catch(onError);
         },
         onErrorEvent(event) {
             // Extract the shaka.util.Error object from the event.
-            this.onError(event.detail)
+            onError(event.detail);
         },
         onError(error) {
             // Log the error.
-            console.error('Error code', error.code, 'object', error)
+           console.error('Error code', error.code, 'object', error);
         }
     }
 }

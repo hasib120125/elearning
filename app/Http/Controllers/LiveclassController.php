@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DB;
+use Mail;
 use Image;
 use Storage;
-use App\Models\Status;
-use Yajra\Datatables\Datatables;
-use App\Models\Setting;
-use App\Models\User;
 use Carbon\Carbon;
-use DB;
-use Illuminate\Database\Eloquent\Collection;
-use Mail;
-use App\Models\Liveclass;
-use App\Models\LiveclassUser;
-use App\Models\Division;
-use App\Models\Group;
-use App\Models\Department;
 use App\Models\Team;
 use App\Models\Unit;
+use App\Models\User;
+use App\Models\Group;
+use App\Models\Status;
+use App\Models\Setting;
+use App\Models\Division;
+use App\Models\Liveclass;
+use App\Models\Department;
+use Illuminate\Http\Request;
+use App\Models\LiveclassUser;
+use App\Mail\LiveclassAssigned;
+use Yajra\Datatables\Datatables;
+use Illuminate\Database\Eloquent\Collection;
 
 class LiveclassController extends Controller
 {
@@ -214,7 +215,7 @@ class LiveclassController extends Controller
                 'status_id' => 23,
                 'email_body' => $request->email_body,
             ];
-            //Mail::send(new ExamAssigned($user, $exam, $request->started_at, $request->ended_at, $request->email_body));
+            Mail::send(new LiveclassAssigned($user, $liveclass, $request->started_at, $request->ended_at, $request->email_body));
         }
         $test = $liveclass->users()->attach($liveclass_user);
 
@@ -223,16 +224,16 @@ class LiveclassController extends Controller
 
     public function status()
     {
-        $Liveclass = Liveclass::pluck('title', 'id');
+        $liveclass = LiveclassUser::pluck('id');
         $statuses = Status::where('whose', 'liveclass_users')->pluck('display_name', 'id');
 
-        return view('lives.status', compact('statuses', 'Liveclass'));
+        return view('lives.status', compact('statuses', 'liveclass'));
     }
 
     public function statusData(Datatables $datatables)
     {
         $request = $datatables->getRequest();
-        $query = ExamUser::join('users', 'liveclass_user.user_id', 'users.id')
+        $query = LiveclassUser::join('users', 'liveclass_user.user_id', 'users.id')
             ->join('liveclasses', 'liveclass_user.liveclass_id', 'liveclasses.id')
             ->join('statuses', 'liveclass_user.status_id', 'statuses.id')
             ->select([
@@ -257,7 +258,7 @@ class LiveclassController extends Controller
         }
         $datatable = $datatables->eloquent($query)
             ->addColumn('action', function ($liveclass_user) {
-                return view('lives.actions', ['liveclass_user' => $liveclass_user]);
+                return view('lives.status-actions', ['liveclass_user' => $liveclass_user]);
             })
             ->make(true);
 
