@@ -17,6 +17,7 @@ class CreateLiveclassesTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->text('description')->nullable();
+            $table->string('ended_at')->nullable();
             $table->unsignedInteger('status_id')->nullable();
             $table->unsignedInteger('duration')->default(0);
             $table->string('url')->nullable();
