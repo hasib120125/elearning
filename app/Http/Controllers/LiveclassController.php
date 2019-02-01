@@ -224,7 +224,7 @@ class LiveclassController extends Controller
 
     public function status()
     {
-        $liveclass = LiveclassUser::pluck('id');
+        $liveclass = Liveclass::pluck('title', 'id');
         $statuses = Status::where('whose', 'liveclass_users')->pluck('display_name', 'id');
 
         return view('lives.status', compact('statuses', 'liveclass'));
