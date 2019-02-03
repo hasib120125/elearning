@@ -8,11 +8,15 @@ export default new Vuex.Store({
     state: {
       user: {},
       isFull: false,
-      reloadCourses: false
+      reloadCourses: false,
+      liveclass: {}
     },
     mutations:{
       getUser(state, user){
         state.user = user
+      },
+      getLiveclass(state, liveclass){
+        state.liveclass = liveclass
       },
       toggleFull(state, isFull){
         state.isFull = isFull
@@ -26,6 +30,12 @@ export default new Vuex.Store({
         api.get('users/self')
         .then(function(response){
           commit('getUser', response.data)
+        })
+      },
+      getLiveclass ({ commit }) {
+        api.get('users/self-detail')
+        .then(function(response){
+          commit('getLiveclass', response.data)
         })
       },
       toggleFull({ commit }, data){
