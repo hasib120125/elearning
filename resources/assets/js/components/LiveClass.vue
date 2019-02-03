@@ -10,7 +10,6 @@
 
 <script>
 import shaka from 'shaka-player'
-import 'videojs-mux'
 
 export default {
     data () {

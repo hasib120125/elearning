@@ -265,11 +265,6 @@ class LiveclassController extends Controller
         return $datatable;
     }
 
-    public function exprot(Request $request)
-    {
-        return new CourseUserExport($request);
-    }
-
     public function showChangeTimeForm($id)
     {
         $course_user = CourseUser::find($id);
