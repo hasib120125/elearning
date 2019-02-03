@@ -12,7 +12,7 @@
           <li :class="{active: elem == 'FollowHome'}"><router-link :to="{ name: 'FollowHome' }">Dashboard</router-link></li>
           <li :class="{active: elem == 'CourseList'}"><router-link :to="{ name: 'CourseList'}">Courses</router-link></li>
           <li :class="{active: elem == 'QuizHome'}"><router-link :to="{ name: 'QuizHome'}">Exam Hall</router-link></li>
-          <li v-if="liveclass.source != 1"><router-link :to="{ name: 'LiveClass'}">Live Class</router-link></li>
+          <li v-if="liveclass.status_id != 25"><router-link :to="{ name: 'LiveClass'}">Live Class</router-link></li>
         </ul>
         <ul class="user-nav">
           <a href="javascript:void(0)" class="user-name" @click.prevent="isUserNavOpen = !isUserNavOpen">{{ user.name }}</a>

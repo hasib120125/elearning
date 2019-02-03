@@ -5,12 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use App\Models\Skill;
 use App\Models\CourseUser;
+use App\Models\LiveclassUser;
 
 class UserController
 {
     public function self()
     {
         return auth()->user();
+    }
+
+     public function lives()
+    {   
+        return LiveclassUser::where('user_id', auth()->user()->id)->first();
     }
 
     public function selfDetail()

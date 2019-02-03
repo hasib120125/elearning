@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\CourseUser;
 use App\Models\ExamUser;
 use App\Models\Setting;
+use App\Models\LiveclassUser;
 use Illuminate\Http\Request;
 
 class CourseController
@@ -84,5 +85,9 @@ class CourseController
         }
 
         return $course_user;
+    }
+
+    public function lives(){
+        return LiveclassUser::all();
     }
 }
