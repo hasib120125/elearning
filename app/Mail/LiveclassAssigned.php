@@ -47,7 +47,7 @@ class LiveclassAssigned extends Mailable implements ShouldQueue
                 $body = str_replace($slot, $this->started_at, $body);
             } elseif ($slots[1][$key] == 'end_date') {
                 $body = str_replace($slot, $this->ended_at, $body);
-            } elseif ($slots[1][$key] == 'exam_title') {
+            } elseif ($slots[1][$key] == 'title') {
                 $body = str_replace($slot, $this->liveclass->title, $body);
             }
         }
