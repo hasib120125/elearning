@@ -11,6 +11,7 @@ class Liveclass extends Model
     protected $fillable = [
         'title',
         'description',
+        'ended_at',
         'duration',
         'created_at',
         'updated_at',

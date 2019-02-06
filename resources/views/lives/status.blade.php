@@ -8,12 +8,6 @@
     Assigned Liveclass Status
   </h2>
   <div class="pull-right">
-    {{-- <a href="{{route('exams.export-exam-result')}}" class="btn btn-info">
-        <i class="fa fa-download"></i> Export Incomplete Liveclass
-    </a>
-    <a href="{{ route('exams.export')}}" class="btn btn-info export-button" id="export-button">
-      <i class="fa fa-download"></i> Liveclass Export
-    </a> --}}
     <a href="{{ route('courses.liveclass-create')}}" class="btn bg-blue create-button" id="create-button">
       <i class="fa fa-plus-square"></i> Add new
     </a>

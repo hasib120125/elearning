@@ -188,7 +188,7 @@ class LiveclassController extends Controller
                         $ended_at = Carbon::parse($request->ended_at);
                         if ($started_at->gt($ended_at)) {
                             return $fail('End date should be greater than start date');
-                        } elseif ($ended_at->gt($liveclass->created_at)) {
+                        } elseif ($ended_at->gt($liveclass->ended_at)) {
                             return $fail('End date Exceeds expiry date');
                         }
                     }
@@ -263,11 +263,6 @@ class LiveclassController extends Controller
             ->make(true);
 
         return $datatable;
-    }
-
-    public function exprot(Request $request)
-    {
-        return new CourseUserExport($request);
     }
 
     public function showChangeTimeForm($id)

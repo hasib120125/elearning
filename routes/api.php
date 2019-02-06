@@ -52,7 +52,6 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/self', 'UserController@self');
         Route::get('/self-detail', 'UserController@selfDetail');
+        Route::get('/live-assigned', 'UserController@lives');
     });
-    
-    Route::get('/liveclass-status-data', 'LiveclassController@statusData');
 });

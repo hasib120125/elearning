@@ -77,12 +77,6 @@ Route::middleware('auth', CheckDefaultPassword::class)
         Route::name('course-user.')
             ->prefix('course-user')
             ->group(base_path('routes/course-user.php'));
-        Route::name('live-streams.')
-            ->prefix('live-streams')
-            ->group(base_path('routes/live-streams.php'));
-        Route::name('livestream-user.')
-            ->prefix('livestream-user')
-            ->group(base_path('routes/livestream-user.php'));
         Route::name('skills.')
             ->prefix('skills')
             ->group(base_path('routes/skills.php'));

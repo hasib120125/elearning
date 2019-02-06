@@ -33,7 +33,7 @@ export default new Vuex.Store({
         })
       },
       getLiveclass ({ commit }) {
-        api.get('users/self-detail')
+        api.get('users/live-assigned')
         .then(function(response){
           commit('getLiveclass', response.data)
         })

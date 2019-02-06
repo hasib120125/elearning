@@ -47,5 +47,6 @@
 			})
 		}
 		</script>
+		<script type="text/javascript" src="{{asset('js/mux.js')}}"></script>
 	</body>
 </html>
