@@ -23877,7 +23877,7 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm.liveclass.source != 1
+          _vm.liveclass.status_id != 25
             ? _c(
                 "li",
                 [
