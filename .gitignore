@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/database/migrations
 /public/assets
 /public/storage
 /public/nfs_share
